@@ -114,7 +114,20 @@ const DataTable = () => {
           <tbody className="sm:text-[16px] text-[10px] font-[500]]">
             {data.map((entry) => (
               <tr key={entry.id} className="border-[1px]">
-                <td className="border-[1px] sm:p-2 p-1">{entry.pl_name}</td>
+                <td className="border-[1px] sm:p-2 p-1 text-blue-400">
+                  <a
+                  target="blank"
+                    href={
+                      "https://exoplanetarchive.ipac.caltech.edu/overview/" +
+                      encodeURIComponent(entry.pl_name) +
+                      "#planet_" +
+                      encodeURIComponent(entry.pl_name) +
+                      "_collapsible"
+                    }
+                  >
+                    {entry.pl_name}
+                  </a>
+                </td>
                 <td className="border-[1px] sm:p-2 p-1">{entry.hostname}</td>
                 <td className="border-[1px] sm:p-2 p-1">{entry.disc_year}</td>
                 <td className="border-[1px] sm:p-2 p-1">

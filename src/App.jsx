@@ -105,11 +105,11 @@ const App = () => {
 
   return (
     <>
-      <div className="w-full h-screen font-monstreat font-[600] flex sm:flex-row flex-col">
-        <div className="sm:w-1/2 w-full bg-[#080202] text-white h-full sm:p-12 p-24  sm:text-[75px] text-[40px]">
+      <div className="w-full h-screen font-monstreat font-[600] flex sm:flex-row flex-col bg-space bg- bg-no-repeat">
+        <div className="sm:w-1/2 w-full text-white h-full sm:p-12 p-24  sm:text-[75px] text-[40px]">
           Journey to the Stars: Explore the Vast Archive of NASA Exoplanets
         </div>
-        <div className="sm:w-1/2 w-full h-screen flex justify-center bg-space bg-cover bg-no-repeat items-center">
+        <div className="sm:w-1/2 w-full h-screen flex justify-center  items-center">
           <Link to={"/explore"}>
             {tableData?.length > 1 ? (
               <button className="bg-inherit border-[1px] text-white sm:px-4 sm:text-[25px] text-[20px] p-2">
