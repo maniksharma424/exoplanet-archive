@@ -38,9 +38,9 @@ const Explore = () => {
       theme: "light",
     });
     if (!planetsData?.host_names) {
-      navigate("https://exoplanet-archive.vercel.app");
+      navigate("/");
     }
-  }, [planetsData, navigate])
+  }, [planetsData, navigate]);
 
   return (
     <Provider store={store}>
@@ -159,7 +159,7 @@ const Explore = () => {
           <p className="relative bottom-20">
             Here you can query{" "}
             <a
-            target="blank"
+              target="blank"
               href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS"
               className="font-[600] text-blue-500"
             >
