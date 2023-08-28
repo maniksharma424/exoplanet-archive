@@ -9,5 +9,4 @@ export const dynamicSort = (array, dispatch, property, order) => {
       : bValue.localeCompare(aValue);
   });
   dispatch(setFilteredData(sortedArray));
-  console.log(sortedArray);
 };

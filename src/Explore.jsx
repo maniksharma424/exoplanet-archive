@@ -3,7 +3,6 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import store from "./redux/store";
 import { filterData } from "./utils/search";
 import DataTable from "./components/DataTable";
-
 import { useNavigate } from "react-router-dom";
 import { clearFilteredData } from "./redux/dataSlice";
 import "react-toastify/dist/ReactToastify.css";
@@ -34,21 +33,22 @@ const Explore = () => {
 
   useEffect(() => {
     toast.info("Select filters to get started", {
-      position: "top-right",
-      autoClose: 5000,
+      position: "bottom-right",
+      autoClose: 3000,
       theme: "light",
     });
     if (!planetsData?.host_names) {
       navigate("/");
     }
-  }, [planetsData, navigate]);
+  }, [planetsData, navigate])
+
   return (
     <Provider store={store}>
       <ToastContainer />
-      <div className="flex w-full justify-around  font-[600] sm:text-[16px] text-[14px] p-12">
+      <div className="flex sm:flex-row flex-col w-full justify-around  font-[400] sm:text-[16px] text-[10px] sm:p-12 p-5 sticky top-0 bg-white z-1">
         {planetsData?.host_names ? (
           <select
-            className="w-1/6 border-[1px] p-2 border-gray-700"
+            className="sm:w-1/6 w-full border-[1px] p-2 border-gray-700 cursor-pointer sm:my-0 my-1"
             defaultValue={"Host Name"}
             name=""
             id="hostName"
@@ -68,13 +68,13 @@ const Explore = () => {
         ) : null}
         {planetsData?.planet_names ? (
           <select
-            className="w-1/6 border-[1px] p-2 border-gray-700"
+            className="sm:w-1/6 w-full border-[1px] p-2 border-gray-700 cursor-pointer sm:my-0 my-1"
             name=""
             id="PlanetName"
             onChange={(e) => handleFilterChange("pl_name", e.target.value)}
           >
             <option value="" selected>
-              PLanet Names
+              Planet Names
             </option>
             {planetsData?.planet_names?.map((pl_name, index) => {
               return <option key={index}>{pl_name}</option>;
@@ -84,7 +84,7 @@ const Explore = () => {
 
         {planetsData?.discovery_facility ? (
           <select
-            className="w-1/6 border-[1px] p-2 border-gray-700"
+            className="sm:w-1/6 w-full border-[1px] p-2 border-gray-700 cursor-pointer sm:my-0 my-1"
             name="discoveryFacility"
             id="discoveryFacility"
             onChange={(e) =>
@@ -101,7 +101,7 @@ const Explore = () => {
         ) : null}
         {planetsData?.discovery_method ? (
           <select
-            className="w-1/6 border-[1px] p-2 border-gray-700"
+            className="sm:w-1/6 w-full border-[1px] p-2 border-gray-700 cursor-pointer sm:my-0 my-1"
             name="discoveryMethod"
             id="discoveryMethodu"
             onChange={(e) =>
@@ -118,7 +118,7 @@ const Explore = () => {
         ) : null}
         {planetsData?.discovery_year ? (
           <select
-            className="w-1/6 border-[1px] p-2 border-gray-700"
+            className="sm:w-1/6 w-full border-[1px] p-2 border-gray-700 cursor-pointer sm:my-0 my-1"
             name="discoveryYear"
             id="discoveryYear"
             onChange={(e) => handleFilterChange("disc_year", e.target.value)}
@@ -138,13 +138,13 @@ const Explore = () => {
           }}
           className="p-2 sm:px-3 bg-black rounded text-white"
         >
-          search
+          Search
         </button>
         <button
           onClick={() => {
             dispatch(clearFilteredData());
           }}
-          className="p-2 sm:px-3 bg-black rounded-md text-white"
+          className="p-2 sm:px-3 bg-black rounded-md text-white sm:my-0 my-1"
         >
           Clear
         </button>
@@ -152,8 +152,21 @@ const Explore = () => {
       {filteredData ? (
         <DataTable data={filteredData}></DataTable>
       ) : (
-        <div className="w-full h-screen  flex justify-center items-center font-monstreat sm:text-[20px] text-[14px]">
-          Select Filters to start Searching
+        <div className="w-full h-screen flex flex-col justify-center items-center font-monstreat sm:text-[20px] text-[14px] p-10">
+          <p className="relative bottom-24">
+            Exoplanets are the planets outsode of out solar system
+          </p>
+          <p className="relative bottom-20">
+            Here you can query{" "}
+            <a
+            target="blank"
+              href="https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS"
+              className="font-[600] text-blue-500"
+            >
+              NASA's Exoplanet Archive
+            </a>{" "}
+            and find the one you love the most
+          </p>
         </div>
       )}
     </Provider>

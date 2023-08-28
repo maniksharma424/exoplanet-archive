@@ -18,7 +18,7 @@ const dataSlice = createSlice({
       state.filteredData = action.payload;
     },
     clearFilteredData: (state, action) => {
-      state.filteredData = [];
+      state.filteredData = null;
     },
   },
 });

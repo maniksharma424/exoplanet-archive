@@ -41,6 +41,6 @@ export const filterData = async (selectedFilters, dispatch, tableData) => {
 
     return passFilter;
   });
-  console.log(searchResultData);
+
   dispatch(setFilteredData(searchResultData));
 };
