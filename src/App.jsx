@@ -16,91 +16,91 @@ function AppWrapper() {
 }
 const App = () => {
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   const main = async () => {
-  //     Papa.parse(
-  //       "https://nasa-exoplanet.s3.ap-south-1.amazonaws.com/unique-exo-planet.csv",
-  //       {
-  //         download: true,
-  //         header: true,
-  //         complete: function (results) {
-  //           dispatch(setTableData(results?.data));
-  //           const planetNames = new Set();
-  //           const hostNames = new Set();
-  //           const discoveryYear = new Set();
-  //           const discoveryFacility = new Set();
-  //           const discoveryMethod = new Set();
-
-  //           for (const obj of results.data) {
-  //             planetNames.add(obj.pl_name);
-
-  //             hostNames.add(obj.hostname);
-
-  //             discoveryMethod.add(obj.discoverymethod);
-
-  //             discoveryYear.add(obj.disc_year);
-
-  //             discoveryFacility.add(obj.disc_facility);
-  //           }
-
-  //           dispatch(
-  //             setData({
-  //               planet_names: Array.from(planetNames),
-  //               host_names: Array.from(hostNames),
-  //               discovery_year: Array.from(discoveryYear),
-  //               discovery_method: Array.from(discoveryMethod),
-  //               discovery_facility: Array.from(discoveryFacility),
-  //             })
-  //           );
-  //         },
-
-  //         error: function (error) {
-  //           console.error("Error while parsing:", error);
-  //         },
-  //       }
-  //     );
-  //   };
-
-  //   main();
-  // }, []);
-
   useEffect(() => {
-    const getData = async () => {
-      const Data = await fetch("https://retoolapi.dev/yfb9S0/data").then(
-        (res) => res.json()
-      );
+    const main = async () => {
+      Papa.parse(
+        "https://nasa-exoplanet.s3.ap-south-1.amazonaws.com/unique-exo-planet.csv",
+        {
+          download: true,
+          header: true,
+          complete: function (results) {
+            dispatch(setTableData(results?.data));
+            const planetNames = new Set();
+            const hostNames = new Set();
+            const discoveryYear = new Set();
+            const discoveryFacility = new Set();
+            const discoveryMethod = new Set();
 
-      dispatch(setTableData(Data));
-      const planetNames = new Set();
-      const hostNames = new Set();
-      const discoveryYear = new Set();
-      const discoveryFacility = new Set();
-      const discoveryMethod = new Set();
+            for (const obj of results.data) {
+              planetNames.add(obj.pl_name);
 
-      for (const obj of Data) {
-        planetNames.add(obj.pl_name);
+              hostNames.add(obj.hostname);
 
-        hostNames.add(obj.hostname);
+              discoveryMethod.add(obj.discoverymethod);
 
-        discoveryMethod.add(obj.discoverymethod);
+              discoveryYear.add(obj.disc_year);
 
-        discoveryYear.add(obj.disc_year);
+              discoveryFacility.add(obj.disc_facility);
+            }
 
-        discoveryFacility.add(obj.disc_facility);
-      }
+            dispatch(
+              setData({
+                planet_names: Array.from(planetNames),
+                host_names: Array.from(hostNames),
+                discovery_year: Array.from(discoveryYear),
+                discovery_method: Array.from(discoveryMethod),
+                discovery_facility: Array.from(discoveryFacility),
+              })
+            );
+          },
 
-      dispatch(
-        setData({
-          planet_names: Array.from(planetNames),
-          host_names: Array.from(hostNames),
-          discovery_year: Array.from(discoveryYear),
-          discovery_method: Array.from(discoveryMethod),
-          discovery_facility: Array.from(discoveryFacility),
-        })
+          error: function (error) {
+            console.error("Error while parsing:", error);
+          },
+        }
       );
     };
-    getData();
+
+    main();
   }, []);
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const Data = await fetch("https://retoolapi.dev/yfb9S0/data").then(
+  //       (res) => res.json()
+  //     );
+
+  //     dispatch(setTableData(Data));
+  //     const planetNames = new Set();
+  //     const hostNames = new Set();
+  //     const discoveryYear = new Set();
+  //     const discoveryFacility = new Set();
+  //     const discoveryMethod = new Set();
+
+  //     for (const obj of Data) {
+  //       planetNames.add(obj.pl_name);
+
+  //       hostNames.add(obj.hostname);
+
+  //       discoveryMethod.add(obj.discoverymethod);
+
+  //       discoveryYear.add(obj.disc_year);
+
+  //       discoveryFacility.add(obj.disc_facility);
+  //     }
+
+  //     dispatch(
+  //       setData({
+  //         planet_names: Array.from(planetNames),
+  //         host_names: Array.from(hostNames),
+  //         discovery_year: Array.from(discoveryYear),
+  //         discovery_method: Array.from(discoveryMethod),
+  //         discovery_facility: Array.from(discoveryFacility),
+  //       })
+  //     );
+  //   };
+  //   getData();
+  // }, []);
   const tableData = useSelector((store) => store?.dataslice?.tableData);
 
   return (
