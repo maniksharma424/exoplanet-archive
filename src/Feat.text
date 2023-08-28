@@ -1,0 +1,44 @@
+parse chunks 
+bifercate to implemtn search 
+implement search 
+cache results 
+
+
+
+
+
+
+
+
+### User Stories
+
+1. Users can see a query input panel containing dropdowns allowing the user to query on the year of discovery year, discovery method, hostname, and discovery facility.
+2. Users can also see the 'Clear' and 'Search' buttons in the query input panel.
+3. Users can select a single value from any one or all of the query dropdowns.
+4. Users can click the 'Search' button to search for exoplanets matching all of the selected query values.
+5. Users can see an error message if the 'Search' button was clicked, but no query values were selected.
+6. Users can see the matching exoplanet data displayed in tabular format in a results panel below the query panel. Only the queriable fields should be displayed.
+7. Users can click the 'Clear' button to reset the query selections and clear any data displayed in the results panel if a search had been performed.### 
+
+
+
+Bonus features
+
+1. Users can see the hostname as a hyperlink to NASA's Confirmed Planet Overview Page for that planet.
+2. Users can click on the hostname to display the Confirmed Planet Overview Page in a new browser tab.
+3. Users can see icons (such as up and down symbols) in the column headers.
+4. Users can click on the up symbol to sort the rows in the results panel in ascending order on the values in that column.
+5. Users can click on the down symbol to sort the rows in the results panel in descending order on the values in the column.
+
+
+
+### **Guidelines**
+
+1. You need to use React with VITE to develop this app.
+2. You can use any dependent third-party libraries like Bootstrap or Tailwind to speed up your markup development and layout setup.
+3. You must provide the code setup and the steps for us to run the application and see what you have built.
+4. You must provide the live link for the app, so you can use Netlify, Vercel, etc. to deploy the app.
+5. Try to keep the code as modular and as extensible as possible while following the best practices and community conventions.
+6. We admire folks who evolve with tech. We assume you to use the best in class tools to build & present your solution.
+7. We love to hear clear explanations and expect you to communicate your solutions with clarity.
+8. Last but not least, we appreciate folks who ask the right questions to make better technical decisions, so feel free to ask any relevant questions.
