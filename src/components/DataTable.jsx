@@ -29,7 +29,7 @@ const DataTable = () => {
       <div className="w-full sm:p-12 p-5">
         <ToastContainer />
         <table className="border-[1px] w-full mt-5 h-fit overflow-scroll font-monstreat ">
-          <thead className="sm:text-[18px] text-[7px]">
+          <thead className="sm:text-[18px] text-[7px] sticky top-0 bg-white z-1">
             <tr className="h-16 border-[1px] ">
               <th>
                 Planet Name{" "}

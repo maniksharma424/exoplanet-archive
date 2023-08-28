@@ -38,14 +38,14 @@ const Explore = () => {
       theme: "light",
     });
     if (!planetsData?.host_names) {
-      navigate("/");
+      navigate("https://exoplanet-archive.vercel.app");
     }
   }, [planetsData, navigate])
 
   return (
     <Provider store={store}>
       <ToastContainer />
-      <div className="flex sm:flex-row flex-col w-full justify-around  font-[400] sm:text-[16px] text-[10px] sm:p-12 p-5 sticky top-0 bg-white z-1">
+      <div className="flex sm:flex-row flex-col w-full justify-around  font-[400] sm:text-[16px] text-[10px] sm:p-12 p-5 ">
         {planetsData?.host_names ? (
           <select
             className="sm:w-1/6 w-full border-[1px] p-2 border-gray-700 cursor-pointer sm:my-0 my-1"
