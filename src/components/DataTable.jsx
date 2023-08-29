@@ -51,15 +51,15 @@ const DataTable = () => {
               <th>
                 Hostname{" "}
                 <button
-                  nClick={() => {
-                    dynamicSort(data, dispatch, "pl_name", "ascending");
+                  onClick={() => {
+                    dynamicSort(data, dispatch, "hostname", "ascending");
                   }}
                 >
                   <AiOutlineArrowUp />
                 </button>{" "}
                 <button
-                  nClick={() => {
-                    dynamicSort(data, dispatch, "pl_name", "descending");
+                  onClick={() => {
+                    dynamicSort(data, dispatch, "hostname", "descending");
                   }}
                 >
                   <AiOutlineArrowDown />
